@@ -50,11 +50,11 @@
 
   <mailingLists>
     <mailingList>
-      <name>io7m-parasol</name>
-      <subscribe>io7m-parasol-join@lists.io7m.com</subscribe>
-      <unsubscribe>io7m-parasol-leave@lists.io7m.com</unsubscribe>
-      <post>io7m-parasol@lists.io7m.com</post>
-      <archive>http://lists.io7m.com/io7m-parasol/archive</archive>
+      <name>io7m-jnull</name>
+      <subscribe>io7m-jnull-join@lists.io7m.com</subscribe>
+      <unsubscribe>io7m-jnull-leave@lists.io7m.com</unsubscribe>
+      <post>io7m-jnull@lists.io7m.com</post>
+      <archive>http://lists.io7m.com/io7m-jnull/archive</archive>
     </mailingList>
   </mailingLists>
 
@@ -198,8 +198,25 @@
           <execution>
             <phase>package</phase>
             <goals>
-               <goal>jar</goal>
+              <goal>jar</goal>
             </goals>
+            <configuration>
+              <archive>
+                <manifestEntries>
+                  <Specification-Title>${project.name}</Specification-Title>
+                  <Specification-Version>${project.version}</Specification-Version>
+                  <Specification-Vendor>io7m.com</Specification-Vendor>
+                  <Implementation-Title>${project.name}</Implementation-Title>
+                  <Implementation-Version>${project.version}</Implementation-Version>
+                  <Implementation-Vendor>io7m.com</Implementation-Vendor>
+                  <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+                  <Built-By>io7m</Built-By>
+                </manifestEntries>
+                <manifestSection>
+                  <name>com/io7m/jnull</name>
+                </manifestSection>
+              </archive>
+            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -214,9 +231,26 @@
             <id>attach-javadocs</id>
             <phase>package</phase>
             <goals>
-               <goal>jar</goal>
+              <goal>jar</goal>
             </goals>
-         </execution>
+            <configuration>
+              <archive>
+                <manifestEntries>
+                  <Specification-Title>${project.name}</Specification-Title>
+                  <Specification-Version>${project.version}</Specification-Version>
+                  <Specification-Vendor>io7m.com</Specification-Vendor>
+                  <Implementation-Title>${project.name}</Implementation-Title>
+                  <Implementation-Version>${project.version}</Implementation-Version>
+                  <Implementation-Vendor>io7m.com</Implementation-Vendor>
+                  <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+                  <Built-By>io7m</Built-By>
+                </manifestEntries>
+                <manifestSection>
+                  <name>com/io7m/jnull</name>
+                </manifestSection>
+              </archive>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
 
