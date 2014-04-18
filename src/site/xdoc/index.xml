@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document
+  xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>io7m-jnull</title>
+  </properties>
+
+  <body>
+    <subsection name="jnull">
+      <p>The <var>jnull</var> package implements a set of annotations and
+      functions for improving the safety of Java programs with respect to
+      <var>null</var> references.</p>
+    </subsection>
+  </body>
+
+</document>

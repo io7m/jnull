@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document
+  xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+  <properties>
+    <title>Releases</title>
+  </properties>
+  <body>
+    <section name="Releases">
+      <p>The current release is ${project.version}.</p>
+      <p>
+        Source code and binaries are available from the
+        <a href="http://mvn-repository.io7m.com/${siteReposDirectory}/">repository</a>.
+      </p>
+    </section>
+    <section name="Documentation">
+      <p>
+        Documentation for the ${project.version} release is available for reading online.
+      </p>
+      <ul>
+        <li><a href="documentation/index-m.xhtml">XHTML - one page per section</a></li>
+        <li><a href="documentation/index.xhtml">XHTML - single page</a></li>
+      </ul>
+      <p>
+        Older documentation is archived in the
+        <a href="http://mvn-repository.io7m.com/${siteDocumentationDirectory}">repository</a>.
+      </p>
+    </section>
+    <section name="Changes">
+<table summary="Changes for project io7m-jnull" xmlns="http://www.w3.org/1999/xhtml" class="changelog">
+  <tr>
+    <td>2014-04-18</td>
+    <td>Release: io7m-jnull 1.0.0</td>
+  </tr>
+</table>
+    </section>
+  </body>
+</document>
+
