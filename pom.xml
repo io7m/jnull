@@ -97,6 +97,8 @@
         <inherited>false</inherited>
         <configuration>
           <file>README-CHANGES.xml</file>
+          <feedAuthorEmail>contact@io7m.com</feedAuthorEmail>
+          <feedAuthorName>io7m release robot</feedAuthorName>
         </configuration>
       </plugin>
     </plugins>
