@@ -27,14 +27,6 @@
         <a href="http://mvn-repository.io7m.com/${siteDocumentationDirectory}">repository</a>.
       </p>
     </section>
-    <section name="Changes">
-<table summary="Changes for project io7m-jnull" xmlns="http://www.w3.org/1999/xhtml" class="changelog">
-  <tr>
-    <td>2014-04-18</td>
-    <td>Release: io7m-jnull 1.0.0</td>
-  </tr>
-</table>
-    </section>
   </body>
 </document>
 

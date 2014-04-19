@@ -90,6 +90,15 @@
         <artifactId>maven-site-plugin</artifactId>
         <version>3.3</version>
       </plugin>
+      <plugin>
+        <groupId>com.io7m.changelog</groupId>
+        <artifactId>io7m-changelog-plugin</artifactId>
+        <version>2.1.0</version>
+        <inherited>false</inherited>
+        <configuration>
+          <file>README-CHANGES.xml</file>
+        </configuration>
+      </plugin>
     </plugins>
   </reporting>
 

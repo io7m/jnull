@@ -8,7 +8,7 @@
   </properties>
   <body>
     <section name="Releases">
-      See <a href="http://mvn.io7m.com/io7m-jnull/releases.html">io7m-jnull</a> for releases and documentation.
+      See <a href="${project.parent.url}/releases.html">${project.parent.name}</a> for releases and documentation.
     </section>
   </body>
 </document>
