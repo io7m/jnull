@@ -14,5 +14,9 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-@NotNullByDefault package com.io7m.jnull;
+/**
+ * Annotations and functions for dealing with null references.
+ */
+
+@NonNullByDefault package com.io7m.jnull;
 

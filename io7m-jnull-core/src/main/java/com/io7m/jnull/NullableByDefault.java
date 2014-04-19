@@ -23,14 +23,31 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * An annotation that indicates that the given field or parameter may be null.
+ * <p>
+ * This annotation can be applied to a package, class or method to indicate
+ * that the class fields, method return types and parameters in that element
+ * may be null by default unless there is:
+ * </p>
+ * <p>
+ * <ul>
+ * <li>An explicit nullness annotation
+ * <li>The method overrides a method in a superclass (in which case the
+ * annotation of the corresponding parameter in the superclass applies)
+ * <li>There is a default parameter annotation applied to a more tightly
+ * nested element.
+ * </ul>
+ * </p>
  */
 
 @Documented @Target({
-  ElementType.METHOD,
+  ElementType.ANNOTATION_TYPE,
+  ElementType.CONSTRUCTOR,
   ElementType.FIELD,
   ElementType.LOCAL_VARIABLE,
-  ElementType.PARAMETER }) @Retention(RetentionPolicy.RUNTIME) public @interface MaybeNull
+  ElementType.METHOD,
+  ElementType.PACKAGE,
+  ElementType.PARAMETER,
+  ElementType.TYPE }) @Retention(RetentionPolicy.RUNTIME) public @interface NullableByDefault
 {
   // Nothing.
 }

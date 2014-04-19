@@ -110,6 +110,95 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.]]>
   </s:part>
 
   <s:part>
+    <s:part-title>Usage</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>Annotations</s:section-title>
+      <s:paragraph>
+        Currently, there are at least six competing standards for 
+        annotating fields and variables as not allowing 
+        <s:term s:type="constant">null</s:term> values.
+      </s:paragraph>
+      <s:formal-item s:kind="listing">
+        <s:formal-item-title>Non-null annotation standards</s:formal-item-title>
+        <s:list-unordered>
+          <s:list-item>
+            Java EE 6 
+            <s:link-external s:target="http://docs.oracle.com/javaee/6/api/javax/validation/constraints/NotNull.html">validation constraints</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            Findbugs
+            <s:link-external s:target="http://findbugs.sourceforge.net/manual/annotations.html">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            JSR 305
+            <s:link-external s:target="http://code.google.com/p/jsr-305/">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            IntelliJ IDEA
+            <s:link-external s:target="http://www.jetbrains.com/idea/webhelp/nullable-and-notnull-annotations.html">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            Project Lombok
+            <s:link-external s:target="http://projectlombok.org/features/GetterSetter.html">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            Annotations in the Eclipse
+            <s:term s:type="type">org.eclipse.jdt.annotation</s:term> package.
+          </s:list-item>
+        </s:list-unordered>
+      </s:formal-item>
+      <s:paragraph>
+        Each of the above have various problems with regards to their use in
+        portable Java programs. Firstly, three of them are essentially proprietary
+        program-specific annotations (Findbugs, Intellij IDEA, Eclipse). Some of
+        them are standardized but are subject to availability problems (Java EE 6
+        annotations are only available on the Java EE 6 platform, and at the time
+        of writing, JSR 305 is essentially abandoned). All of them differ in their
+        retention semantics (JSR 305 and Java EE 6 annotations are retained at run-time,
+        others may not be). At the time of writing, Java 8 has just been released and
+        does not contain any definitions of <s:term s:type="type">@NotNull</s:term>
+        annotations, but has incorporated JSR 308 <s:term s:type="term">type annotations</s:term>,
+        which appears to subsume the intentions of JSR 305.
+      </s:paragraph>
+      <s:paragraph>
+        Given the lack of a single standard for these annotations, the 
+        <s:term s:type="package">${project.parent.name}</s:term> package provides
+        yet another competing set of annotations intended for use in all
+        <s:link-external s:target="http://io7m.com">io7m</s:link-external>
+        packages. The annotations attempt to combine all of the desirable
+        qualities of the above standards whilst attempting to be compatible
+        with most of them.
+      </s:paragraph>
+      <s:formal-item s:kind="listing">
+        <s:formal-item-title>Annotations</s:formal-item-title>
+        <s:list-unordered>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external> indicates that a field or variable is never <s:term s:type="constant">null</s:term>.
+          </s:list-item>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/Nullable.html">@Nullable</s:link-external> indicates that a field or variable may be <s:term s:type="constant">null</s:term>.
+          </s:list-item>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/NullableByDefault.html">@NullableByDefault</s:link-external> indicates that all fields and variables in all classes of the annotated package are implicitly annotated <s:link-external s:target="apidocs/com/io7m/jnull/Nullable.html">@Nullable</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/NonNullByDefault.html">@NonNullByDefault</s:link-external> indicates that all fields and variables in all classes of the annotated package are implicitly annotated <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external>.
+          </s:list-item>
+        </s:list-unordered>
+      </s:formal-item>
+      <s:paragraph>
+        At the time of writing, the Eclipse IDE is capable of using
+        the defined annotations in its static <s:term s:type="constant">null</s:term>
+        reference checking. Project Lombok is capable of using the
+        <s:link-external s:target="apidocs/com/io7m/jnull/Nullable.html">@Nullable</s:link-external> and
+        <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external> annotations
+        for code generation. The defined annotations are retained at run-time.
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+  <s:part>
     <s:part-title>API Reference</s:part-title>
     <s:part-contents/>
     <s:section>

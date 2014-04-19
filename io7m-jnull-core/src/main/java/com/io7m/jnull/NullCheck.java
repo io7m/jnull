@@ -33,8 +33,8 @@ public final class NullCheck
    * @return <code>x</code>
    */
 
-  @SuppressWarnings("null") public static @NotNull <T> T notNull(
-    final @MaybeNull T x)
+  @SuppressWarnings("null") public static @NonNull <T> T notNull(
+    final @Nullable T x)
   {
     if (x == null) {
       throw new NullPointerException(
@@ -56,9 +56,9 @@ public final class NullCheck
    * @return <code>x</code>
    */
 
-  @SuppressWarnings("null") public static @NotNull <T> T notNull(
-    final @MaybeNull T x,
-    final @NotNull String message)
+  @SuppressWarnings("null") public static @NonNull <T> T notNull(
+    final @Nullable T x,
+    final @NonNull String message)
   {
     if (x == null) {
       final StringBuilder text = new StringBuilder();
