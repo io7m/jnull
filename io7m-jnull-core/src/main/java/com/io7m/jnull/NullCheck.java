@@ -17,7 +17,18 @@
 package com.io7m.jnull;
 
 /**
+ * <p>
  * Functions for enforcing non-nullable references at run time.
+ * </p>
+ * <p>
+ * The functions are intended for use in the manner of assertions. That is,
+ * the program should behave identically if all of the checks are removed. The
+ * functions raise {@link NullCheckException} to indicate that a null
+ * reference has been explicitly forbidden (rather than the accidental
+ * deference implied by {@link NullPointerException}).
+ * </p>
+ * 
+ * @see NullCheckException
  */
 
 public final class NullCheck
@@ -37,8 +48,7 @@ public final class NullCheck
     final @Nullable T x)
   {
     if (x == null) {
-      throw new NullPointerException(
-        "Null check failed: expression evaluated to null");
+      throw new NullCheckException("Expression evaluated to null");
     }
     return x;
   }
@@ -62,9 +72,9 @@ public final class NullCheck
   {
     if (x == null) {
       final StringBuilder text = new StringBuilder();
-      text.append("Null check failed: expression evaluated to null: ");
+      text.append("Expression evaluated to null: ");
       text.append(message);
-      throw new NullPointerException(text.toString());
+      throw new NullCheckException(text.toString());
     }
     return x;
   }

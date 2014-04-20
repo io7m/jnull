@@ -32,13 +32,13 @@ public final class NullCheckTest
   }
 
   @SuppressWarnings("static-method") @Test(
-    expected = NullPointerException.class) public void testNull()
+    expected = NullCheckException.class) public void testNull()
   {
     NullCheck.notNull(null);
   }
 
   @SuppressWarnings("static-method") @Test(
-    expected = NullPointerException.class) public void testNullMessage()
+    expected = NullCheckException.class) public void testNullMessage()
   {
     try {
       NullCheck.notNull(null, "value");
