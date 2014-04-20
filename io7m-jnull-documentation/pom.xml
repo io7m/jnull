@@ -156,13 +156,8 @@
               <Implementation-Vendor>io7m.com</Implementation-Vendor>
               <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
               <Built-By>io7m</Built-By>
+              <Sealed>true</Sealed>
             </manifestEntries>
-            <manifestSection>
-              <name>com/io7m/jnull/documentation</name>
-              <manifestEntries>
-                <Sealed>true</Sealed>
-              </manifestEntries>
-            </manifestSection>
           </archive>
         </configuration>
       </plugin>
@@ -190,9 +185,6 @@
                   <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
                   <Built-By>io7m</Built-By>
                 </manifestEntries>
-                <manifestSection>
-                  <name>com/io7m/jnull/documentation</name>
-                </manifestSection>
               </archive>
             </configuration>
           </execution>
