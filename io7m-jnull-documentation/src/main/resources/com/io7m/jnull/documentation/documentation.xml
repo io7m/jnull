@@ -62,7 +62,7 @@
         <s:paragraph>
           <s:verbatim s:type="example"><![CDATA[<dependency>
   <groupId>${project.groupId}</groupId>
-  <artifactId>${project.artifactId}</artifactId>
+  <artifactId>${project.parent.artifactId}-core</artifactId>
   <version>${project.version}</version>
 </dependency>]]></s:verbatim>
         </s:paragraph>
