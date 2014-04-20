@@ -127,30 +127,6 @@
         <artifactId>maven-resources-plugin</artifactId>
         <version>2.6</version>
       </plugin>
-
-      <!-- Unpack the documentation archive to the generated site. -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>truezip-maven-plugin</artifactId>
-        <version>1.2</version>
-        <inherited>false</inherited>
-        <executions>
-          <execution>
-            <id>copy-site-documentation</id>
-            <goals>
-              <goal>copy</goal>
-            </goals>
-            <phase>pre-site</phase>
-            <configuration>
-              <verbose>true</verbose>
-              <fileset>
-                <directory>${project.name}-documentation/target/${project.name}-documentation-${project.version}.zip/${project.name}-documentation-${project.version}</directory>
-                <outputDirectory>${project.build.directory}/site/documentation/</outputDirectory>
-              </fileset>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
 
     <!-- Allow deployment over ssh -->
