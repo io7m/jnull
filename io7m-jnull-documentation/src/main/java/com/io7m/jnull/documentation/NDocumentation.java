@@ -20,6 +20,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+/**
+ * Functions for retrieving the documentation.
+ */
+
 public final class NDocumentation
 {
   public static URI getDocumentationXMLLocation()
@@ -27,7 +31,7 @@ public final class NDocumentation
     try {
       final URL url =
         NDocumentation.class
-          .getResource("/com/io7m/jstructural/documentation/documentation.xml");
+          .getResource("/com/io7m/jnull/documentation/documentation.xml");
       assert url != null;
       final URI uri = url.toURI();
       assert uri != null;
