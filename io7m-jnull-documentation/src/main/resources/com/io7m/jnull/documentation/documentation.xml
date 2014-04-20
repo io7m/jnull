@@ -89,7 +89,7 @@
     <s:section>
       <s:section-title>License</s:section-title>
       <s:paragraph>
-        All files distributed with the <s:term s:type="package">jaux</s:term>
+        All files distributed with the <s:term s:type="package">${project.parent.name}</s:term>
         package are placed under the following license:
         <s:verbatim s:type="license"><![CDATA[Copyright © 2014 <code@io7m.com> http://io7m.com
 
