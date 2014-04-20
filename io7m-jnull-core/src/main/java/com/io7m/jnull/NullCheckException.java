@@ -17,7 +17,13 @@
 package com.io7m.jnull;
 
 /**
+ * <p>
  * An exception raised when a {@link NullCheck} assertion fails.
+ * </p>
+ * <p>
+ * Exceptions of this type are <i>not</i> intended to be caught and handled;
+ * they indicate program bugs.
+ * </p>
  * 
  * @see NullCheck
  */

@@ -25,7 +25,9 @@ package com.io7m.jnull;
  * the program should behave identically if all of the checks are removed. The
  * functions raise {@link NullCheckException} to indicate that a null
  * reference has been explicitly forbidden (rather than the accidental
- * deference implied by {@link NullPointerException}).
+ * deference implied by {@link NullPointerException}). Exceptions of this type
+ * are <i>not</i> intended to be caught and handled; they indicate program
+ * bugs.
  * </p>
  * 
  * @see NullCheckException
