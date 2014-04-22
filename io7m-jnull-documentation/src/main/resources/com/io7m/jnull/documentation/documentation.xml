@@ -196,6 +196,70 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.]]>
         for code generation. The defined annotations are retained at run-time.
       </s:paragraph>
     </s:section>
+    <s:section>
+      <s:section-title>Checks</s:section-title>
+      <s:paragraph>
+        The <s:link-external s:target="apidocs/com/io7m/jnull/NullCheck.html">NullCheck</s:link-external>
+        class provides functions for performing terse null-checks. The intention is to perform
+        <s:term s:type="constant">null</s:term> checking inside constructors and on the 
+        boundaries of public interfaces. The rationale for the existence of the 
+        <s:term s:type="constant">null</s:term> checks at all is that although
+        variables can be marked <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external>
+        and tools can statically indicate where a <s:term s:type="constant">null</s:term>
+        value has been passed where a non-<s:term s:type="constant">null</s:term>
+        value is expected, many programmers do not use these tools. If programmers
+        are not using these tools, then they are free to pass
+        <s:term s:type="constant">null</s:term> wherever they want - the language
+        does not prevent it. It is better that checks occur on the boundaries
+        of classes and interfaces where problems can be caught at an early stage
+        rather than the code crashing at arbitrary locations
+        because a <s:term s:type="constant">null</s:term> value worked its way into
+        the program where one was not expected.
+      </s:paragraph>
+      <s:paragraph>
+        A typical pattern is to perform the <s:term s:type="constant">null</s:term> 
+        checks inside of constructors of immutable types:
+      </s:paragraph>
+      <s:formal-item s:kind="example">
+        <s:formal-item-title>Constructor checks</s:formal-item-title>
+        <s:verbatim><![CDATA[final class C
+{
+  private final @NonNull String name;
+  
+  public C(final @Nonnull String in_name)
+  {
+    this.name = NullCheck.notNull(in_name, "Name");
+  }
+  
+  public @Nonnull String getName()
+  {
+    return this.name;
+  }
+}]]></s:verbatim>
+      </s:formal-item>
+      <s:paragraph>
+        If an abusive programmer attempts to construct a value of type
+        <s:term s:type="type">C</s:term> with a
+        <s:term s:type="constant">null</s:term> name, they will be
+        told: <s:term s:type="constant">Null check failed: Expression evaluated to null: Name</s:term>,
+        along with a stack trace indicating that the check failed in the
+        constructor of the type. Without the explicit check, the same
+        programmer could sneak <s:term s:type="constant">null</s:term> 
+        into the program, and any code that called
+        <s:term s:type="function">getName</s:term> would encounter
+        an unexpectedly <s:term s:type="constant">null</s:term> value -
+        far away from where the cause of problem actually originated.
+      </s:paragraph>
+    </s:section>
+    <s:section>
+      <s:section-title>Complaints</s:section-title>
+      <s:paragraph>
+        Nullable references are a major design flaw that have infected
+        almost all programming languages. Better languages rely on
+        algebraic types and pattern matching to completely eliminate
+        all classes of bugs related to nullable references.
+      </s:paragraph>
+    </s:section>
   </s:part>
 
   <s:part>
