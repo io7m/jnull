@@ -72,6 +72,7 @@
   </properties>
 
   <dependencies>
+    <!--  Test suite -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -230,6 +231,7 @@
               <goal>jar</goal>
             </goals>
             <configuration>
+              <bottom><![CDATA[Copyright &#169; {currentYear} &lt;code@io7m.com&gt; http://io7m.com]]></bottom>
               <archive>
                 <manifestEntries>
                   <Specification-Title>${project.name}</Specification-Title>
