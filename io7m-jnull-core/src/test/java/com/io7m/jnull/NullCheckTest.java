@@ -16,29 +16,84 @@
 
 package com.io7m.jnull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-public final class NullCheckTest
+@SuppressWarnings("static-method") public final class NullCheckTest
 {
-  @SuppressWarnings("static-method") @Test public void testNotNull()
+  @Test public void testNotNull()
   {
     Assert.assertEquals("example", NullCheck.notNull("example"));
   }
 
-  @SuppressWarnings("static-method") @Test public void testNotNullMessage()
+  @Test public void testNotNullAll()
+  {
+    final List<Integer> xs = new ArrayList<Integer>();
+    xs.add(Integer.valueOf(0));
+    xs.add(Integer.valueOf(1));
+    xs.add(Integer.valueOf(2));
+    Assert.assertEquals(xs, NullCheck.notNullAll(xs));
+  }
+
+  @Test public void testNotNullAllMessage()
+  {
+    final List<Integer> xs = new ArrayList<Integer>();
+    xs.add(Integer.valueOf(0));
+    xs.add(Integer.valueOf(1));
+    xs.add(Integer.valueOf(2));
+    Assert.assertEquals(xs, NullCheck.notNullAll(xs, "Integers"));
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testNotNullAllNull_0()
+  {
+    final List<Integer> xs = new ArrayList<Integer>();
+    xs.add(Integer.valueOf(0));
+    xs.add(null);
+    xs.add(Integer.valueOf(2));
+    Assert.assertEquals(xs, NullCheck.notNullAll(xs));
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testNotNullAllNull_1()
+  {
+    NullCheck.notNullAll(null);
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testNotNullAllNullMessage_0()
+  {
+    final List<Integer> xs = new ArrayList<Integer>();
+    xs.add(Integer.valueOf(0));
+    xs.add(null);
+    xs.add(Integer.valueOf(2));
+    Assert.assertEquals(xs, NullCheck.notNullAll(xs, "Integers"));
+  }
+
+  @Test(expected = NullCheckException.class) public
+    void
+    testNotNullAllNullMessage_1()
+  {
+    NullCheck.notNullAll(null, "Integers");
+  }
+
+  @Test public void testNotNullMessage()
   {
     Assert.assertEquals("example", NullCheck.notNull("example", "Message"));
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNull()
+  @Test(expected = NullCheckException.class) public void testNull()
   {
     NullCheck.notNull(null);
   }
 
-  @SuppressWarnings("static-method") @Test(
-    expected = NullCheckException.class) public void testNullMessage()
+  @Test(expected = NullCheckException.class) public void testNullMessage()
   {
     try {
       NullCheck.notNull(null, "value");
