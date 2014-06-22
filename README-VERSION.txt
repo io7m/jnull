@@ -1,1 +1,1 @@
-io7m-jnull 0.3.1
+io7m-jnull 1.0.0
