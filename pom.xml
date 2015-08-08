@@ -60,6 +60,10 @@
       <name>io7m.com</name>
       <url>${project.url}</url>
     </site>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
   </distributionManagement>
 
   <prerequisites>
@@ -130,6 +134,19 @@
           <configuration>
             <source>1.6</source>
             <target>1.6</target>
+          </configuration>
+        </plugin>
+
+        <!-- Sonatype OSSRH deployment -->
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.3</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>sonatype-nexus-staging</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
           </configuration>
         </plugin>
       </plugins>
