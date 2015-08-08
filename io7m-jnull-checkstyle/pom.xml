@@ -14,110 +14,25 @@
 
   <packaging>jar</packaging>
   <description>Null pointer handling (Checkstyle policy)</description>
-  <url>http://mvn.io7m.com/${project.artifactId}/</url>
+  <url>http://io7m.github.io/jnull</url>
   <name>${project.artifactId}</name>
 
-  <licenses>
-    <license>
-      <name>ISC License</name>
-      <url>http://www.opensource.org/licenses/isc-license.txt</url>
-    </license>
-  </licenses>
-
   <scm>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jnull</url>
-    <connection>scm:http://fossil.io7m.com/repo.cgi/io7m-jnull</connection>
-    <developerConnection>scm:http://fossil.io7m.com/repo.cgi/io7m-jnull</developerConnection>
+    <url>${project.parent.scm.url}</url>
+    <connection>${project.parent.scm.connection}</connection>
+    <developerConnection>${project.parent.scm.developerConnection}</developerConnection>
   </scm>
 
-  <developers>
-    <developer>
-      <id>io7m</id>
-      <name>io7m</name>
-      <email>code@io7m.com</email>
-      <url>http://io7m.com</url>
-    </developer>
-  </developers>
-
-  <issueManagement>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jnull</url>
-    <system>Fossil</system>
-  </issueManagement>
-
-  <distributionManagement>
-    <site>
-      <id>io7m</id>
-      <name>io7m.com</name>
-      <url>${project.url}</url>
-    </site>
-  </distributionManagement>
-
-  <mailingLists>
-    <mailingList>
-      <name>io7m-jnull</name>
-      <subscribe>io7m-jnull-join@lists.io7m.com</subscribe>
-      <unsubscribe>io7m-jnull-leave@lists.io7m.com</unsubscribe>
-      <post>io7m-jnull@lists.io7m.com</post>
-      <archive>http://lists.io7m.com/io7m-jnull/archive</archive>
-    </mailingList>
-  </mailingLists>
-
-  <prerequisites>
-    <maven>2.2.1</maven>
-  </prerequisites>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.7</version>
-        <configuration>
-          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>3.3</version>
-      </plugin>
-    </plugins>
-  </reporting>
+  <dependencies>
+  </dependencies>
 
   <build>
     <plugins>
-      <!-- Plugin versions -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>2.5</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.4</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
-      </plugin>
-
       <!-- Produce custom manifest in jar files -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
+        <version>2.6</version>
         <configuration>
           <archive>
             <manifestEntries>
@@ -139,7 +54,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>2.4</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -169,7 +84,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>2.10.3</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>

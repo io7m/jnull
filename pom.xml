@@ -12,7 +12,7 @@
   <packaging>pom</packaging>
   <name>io7m-jnull</name>
   <description>Null pointer handling</description>
-  <url>http://mvn.io7m.com/${project.artifactId}/</url>
+  <url>http://io7m.github.io/jnull/</url>
 
   <modules>
     <module>io7m-jnull-checkstyle</module>
@@ -30,14 +30,14 @@
   <licenses>
     <license>
       <name>ISC License</name>
-      <url>http://www.opensource.org/licenses/isc-license.txt</url>
+      <url>http://io7m.com/license/isc.txt</url>
     </license>
   </licenses>
 
   <scm>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jnull</url>
-    <connection>scm:http://fossil.io7m.com/repo.cgi/io7m-jnull</connection>
-    <developerConnection>scm:http://fossil.io7m.com/repo.cgi/io7m-jnull</developerConnection>
+    <url>https://github.com/io7m/jnull</url>
+    <connection>scm:git:https://github.com/io7m/jnull</connection>
+    <developerConnection>scm:git:https://github.com/io7m/jnull</developerConnection>
   </scm>
 
   <developers>
@@ -50,8 +50,8 @@
   </developers>
 
   <issueManagement>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jnull</url>
-    <system>Fossil</system>
+    <url>http://github.com/io7m/jnull/issues</url>
+    <system>GitHub Issues</system>
   </issueManagement>
 
   <distributionManagement>
@@ -62,16 +62,6 @@
     </site>
   </distributionManagement>
 
-  <mailingLists>
-    <mailingList>
-      <name>io7m-jnull</name>
-      <subscribe>io7m-jnull-join@lists.io7m.com</subscribe>
-      <unsubscribe>io7m-jnull-leave@lists.io7m.com</unsubscribe>
-      <post>io7m-jnull@lists.io7m.com</post>
-      <archive>http://lists.io7m.com/io7m-jnull/archive</archive>
-    </mailingList>
-  </mailingLists>
-
   <prerequisites>
     <maven>2.2.1</maven>
   </prerequisites>
@@ -81,7 +71,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.7</version>
+        <version>2.8</version>
         <configuration>
           <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
         </configuration>
@@ -89,7 +79,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.3</version>
+        <version>3.4</version>
+        <configuration>
+          <validate>true</validate>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>com.io7m.changelog</groupId>
@@ -111,22 +104,22 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>2.5</version>
+        <version>2.6.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
+        <version>2.8.2</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-install-plugin</artifactId>
-        <version>2.4</version>
+        <version>2.5.2</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
+        <version>2.7</version>
       </plugin>
     </plugins>
 
@@ -138,36 +131,6 @@
         <version>2.2</version>
       </extension>
     </extensions>
-
-    <!-- Mark plugins as ignored in Eclipse, does not affect the build. -->
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.sonatype.maven.plugin</groupId>
-                    <artifactId>emma-maven-plugin</artifactId>
-                    <versionRange>[1.2,)</versionRange>
-                    <goals>
-                      <goal>instrument</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
   <!-- Sign artifacts when deploying to io7m -->
@@ -184,7 +147,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.4</version>
+            <version>1.6</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
