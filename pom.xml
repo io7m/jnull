@@ -15,6 +15,7 @@
   <url>http://mvn.io7m.com/${project.artifactId}/</url>
 
   <modules>
+    <module>io7m-jnull-checkstyle</module>
     <module>io7m-jnull-core</module>
     <module>io7m-jnull-documentation</module>
   </modules>
