@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>io7m-jnull 1.0.0 Documentation: 2.2. Checks</title><link rel="stylesheet" type="text/css" href="jstructural-2.0.0-layout.css"/><link rel="stylesheet" type="text/css" href="jstructural-2.0.0-colour.css"/><link rel="stylesheet" type="text/css" href="documentation.css"/></head><body><div class="st200_body"><div class="brand">
+  <div class="brand_left">
+    <a href="http://io7m.com/">io7m</a>
+  </div>
+  <div class="brand_right">
+    <a href="http://io7m.github.io/jnull/">io7m-jnull</a> 1.0.0
+  </div>
+</div><div class="st200_navbar st200_navbar_top"><table class="st200_navbar_table" summary="Navigation bar"><tr><td class="st200_navbar_prev_title_cell">2.1. Annotations</td><td class="st200_navbar_up_title_cell">2. Usage</td><td class="st200_navbar_next_title_cell">2.3. Complaints</td></tr><tr><td class="st200_navbar_prev_file_cell"><a href="p2s1.xhtml#st200_p2s1">Previous</a></td><td class="st200_navbar_up_file_cell"><a href="p2.xhtml#st200_p2">Up</a></td><td class="st200_navbar_next_file_cell"><a href="p2s3.xhtml#st200_p2s3">Next</a></td></tr></table><hr class="st200_hr"/></div><div class="st200_section_container"><div class="st200_section_title_number"><a id="st200_p2s2" href="#st200_p2s2">2.2</a></div><div class="st200_section_title">Checks</div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s2pg1" href="#st200_p2s2pg1">1</a></div><div class="st200_paragraph">
+        The <a class="st200_link_external" href="apidocs/com/io7m/jnull/NullCheck.html">NullCheck</a>
+        class provides functions for performing terse null-checks. The intention is to perform
+        <span class="st200_term constant">null</span> checking inside constructors and on the 
+        boundaries of public interfaces. The rationale for the existence of the 
+        <span class="st200_term constant">null</span> checks at all is that although
+        variables can be marked <a class="st200_link_external" href="apidocs/com/io7m/jnull/NonNull.html">@NonNull</a>
+        and tools can statically indicate where a <span class="st200_term constant">null</span>
+        value has been passed where a non-<span class="st200_term constant">null</span>
+        value is expected, many programmers do not use these tools. If programmers
+        are not using these tools, then they are free to pass
+        <span class="st200_term constant">null</span> wherever they want - the language
+        does not prevent it. It is better that checks occur on the boundaries
+        of classes and interfaces where problems can be caught at an early stage
+        rather than the code crashing at arbitrary locations
+        because a <span class="st200_term constant">null</span> value worked its way into
+        the program where one was not expected.
+      </div></div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s2pg2" href="#st200_p2s2pg2">2</a></div><div class="st200_paragraph">
+        A typical pattern is to perform the <span class="st200_term constant">null</span> 
+        checks inside of constructors of immutable types:
+      </div></div><div class="st200_formal_item"><div class="st200_formal_item_title"><a id="st200_p2s2fo1" href="#st200_p2s2fo1">2.2.1. Constructor checks</a></div><pre class="st200_verbatim">final class C
+{
+  private final @NonNull String name;
+  
+  public C(final @Nonnull String in_name)
+  {
+    this.name = NullCheck.notNull(in_name, "Name");
+  }
+  
+  public @Nonnull String getName()
+  {
+    return this.name;
+  }
+}</pre></div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s2pg3" href="#st200_p2s2pg3">3</a></div><div class="st200_paragraph">
+        If an abusive programmer attempts to construct a value of type
+        <span class="st200_term type">C</span> with a
+        <span class="st200_term constant">null</span> name, they will be
+        told: <span class="st200_term constant">Null check failed: Expression evaluated to null: Name</span>,
+        along with a stack trace indicating that the check failed in the
+        constructor of the type. Without the explicit check, the same
+        programmer could sneak <span class="st200_term constant">null</span> 
+        into the program, and any code that called
+        <span class="st200_term function">getName</span> would encounter
+        an unexpectedly <span class="st200_term constant">null</span> value -
+        far away from where the cause of problem actually originated.
+      </div></div></div><div class="st200_navbar st200_navbar_bottom"><hr class="st200_hr"/><table class="st200_navbar_table" summary="Navigation bar"><tr><td class="st200_navbar_prev_file_cell"><a href="p2s1.xhtml#st200_p2s1">Previous</a></td><td class="st200_navbar_up_file_cell"><a href="p2.xhtml#st200_p2">Up</a></td><td class="st200_navbar_next_file_cell"><a href="p2s3.xhtml#st200_p2s3">Next</a></td></tr><tr><td class="st200_navbar_prev_title_cell">2.1. Annotations</td><td class="st200_navbar_up_title_cell">2. Usage</td><td class="st200_navbar_next_title_cell">2.3. Complaints</td></tr></table></div></div></body></html>

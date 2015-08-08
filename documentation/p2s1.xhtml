@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>io7m-jnull 1.0.0 Documentation: 2.1. Annotations</title><link rel="stylesheet" type="text/css" href="jstructural-2.0.0-layout.css"/><link rel="stylesheet" type="text/css" href="jstructural-2.0.0-colour.css"/><link rel="stylesheet" type="text/css" href="documentation.css"/></head><body><div class="st200_body"><div class="brand">
+  <div class="brand_left">
+    <a href="http://io7m.com/">io7m</a>
+  </div>
+  <div class="brand_right">
+    <a href="http://io7m.github.io/jnull/">io7m-jnull</a> 1.0.0
+  </div>
+</div><div class="st200_navbar st200_navbar_top"><table class="st200_navbar_table" summary="Navigation bar"><tr><td class="st200_navbar_prev_title_cell">2. Usage</td><td class="st200_navbar_up_title_cell">2. Usage</td><td class="st200_navbar_next_title_cell">2.2. Checks</td></tr><tr><td class="st200_navbar_prev_file_cell"><a href="p2.xhtml#st200_p2">Previous</a></td><td class="st200_navbar_up_file_cell"><a href="p2.xhtml#st200_p2">Up</a></td><td class="st200_navbar_next_file_cell"><a href="p2s2.xhtml#st200_p2s2">Next</a></td></tr></table><hr class="st200_hr"/></div><div class="st200_section_container"><div class="st200_section_title_number"><a id="st200_p2s1" href="#st200_p2s1">2.1</a></div><div class="st200_section_title">Annotations</div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s1pg1" href="#st200_p2s1pg1">1</a></div><div class="st200_paragraph">
+        Currently, there are at least six competing standards for 
+        annotating fields and variables as not allowing 
+        <span class="st200_term constant">null</span> values.
+      </div></div><div class="st200_formal_item"><div class="st200_formal_item_title"><a id="st200_p2s1fo1" href="#st200_p2s1fo1">2.1.1. Non-null annotation standards</a></div><ul class="st200_list_unordered"><li class="st200_list_item">
+            Java EE 6 
+            <a class="st200_link_external" href="http://docs.oracle.com/javaee/6/api/javax/validation/constraints/NotNull.html">validation constraints</a>.
+          </li><li class="st200_list_item">
+            Findbugs
+            <a class="st200_link_external" href="http://findbugs.sourceforge.net/manual/annotations.html">annotations</a>.
+          </li><li class="st200_list_item">
+            JSR 305
+            <a class="st200_link_external" href="http://code.google.com/p/jsr-305/">annotations</a>.
+          </li><li class="st200_list_item">
+            IntelliJ IDEA
+            <a class="st200_link_external" href="http://www.jetbrains.com/idea/webhelp/nullable-and-notnull-annotations.html">annotations</a>.
+          </li><li class="st200_list_item">
+            Project Lombok
+            <a class="st200_link_external" href="http://projectlombok.org/features/GetterSetter.html">annotations</a>.
+          </li><li class="st200_list_item">
+            Annotations in the Eclipse
+            <span class="st200_term type">org.eclipse.jdt.annotation</span> package.
+          </li></ul></div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s1pg2" href="#st200_p2s1pg2">2</a></div><div class="st200_paragraph">
+        Each of the above have various problems with regards to their use in
+        portable Java programs. Firstly, three of them are essentially proprietary
+        program-specific annotations (Findbugs, Intellij IDEA, Eclipse). Some of
+        them are standardized but are subject to availability problems (Java EE 6
+        annotations are only available on the Java EE 6 platform, and at the time
+        of writing, JSR 305 is essentially abandoned). All of them differ in their
+        retention semantics (JSR 305 and Java EE 6 annotations are retained at run-time,
+        others may not be). At the time of writing, Java 8 has just been released and
+        does not contain any definitions of <span class="st200_term type">@NotNull</span>
+        annotations, but has incorporated JSR 308 <span class="st200_term term">type annotations</span>,
+        which appears to subsume the intentions of JSR 305.
+      </div></div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s1pg3" href="#st200_p2s1pg3">3</a></div><div class="st200_paragraph">
+        Given the lack of a single standard for these annotations, the 
+        <span class="st200_term package">io7m-jnull</span> package provides
+        yet another competing set of annotations intended for use in all
+        <a class="st200_link_external" href="http://io7m.com">io7m</a>
+        packages. The annotations attempt to combine all of the desirable
+        qualities of the above standards whilst attempting to be compatible
+        with most of them.
+      </div></div><div class="st200_formal_item"><div class="st200_formal_item_title"><a id="st200_p2s1fo2" href="#st200_p2s1fo2">2.1.2. Annotations</a></div><ul class="st200_list_unordered"><li class="st200_list_item">
+            <a class="st200_link_external" href="apidocs/com/io7m/jnull/NonNull.html">@NonNull</a> indicates that a field or variable is never <span class="st200_term constant">null</span>.
+          </li><li class="st200_list_item">
+            <a class="st200_link_external" href="apidocs/com/io7m/jnull/Nullable.html">@Nullable</a> indicates that a field or variable may be <span class="st200_term constant">null</span>.
+          </li><li class="st200_list_item">
+            <a class="st200_link_external" href="apidocs/com/io7m/jnull/NullableByDefault.html">@NullableByDefault</a> indicates that all fields and variables in all classes of the annotated package are implicitly annotated <a class="st200_link_external" href="apidocs/com/io7m/jnull/Nullable.html">@Nullable</a>.
+          </li><li class="st200_list_item">
+            <a class="st200_link_external" href="apidocs/com/io7m/jnull/NonNullByDefault.html">@NonNullByDefault</a> indicates that all fields and variables in all classes of the annotated package are implicitly annotated <a class="st200_link_external" href="apidocs/com/io7m/jnull/NonNull.html">@NonNull</a>.
+          </li></ul></div><div class="st200_paragraph_container"><div class="st200_paragraph_number"><a id="st200_p2s1pg4" href="#st200_p2s1pg4">4</a></div><div class="st200_paragraph">
+        At the time of writing, the Eclipse IDE is capable of using
+        the defined annotations in its static <span class="st200_term constant">null</span>
+        reference checking. Project Lombok is capable of using the
+        <a class="st200_link_external" href="apidocs/com/io7m/jnull/Nullable.html">@Nullable</a> and
+        <a class="st200_link_external" href="apidocs/com/io7m/jnull/NonNull.html">@NonNull</a> annotations
+        for code generation. The defined annotations are retained at run-time.
+      </div></div></div><div class="st200_navbar st200_navbar_bottom"><hr class="st200_hr"/><table class="st200_navbar_table" summary="Navigation bar"><tr><td class="st200_navbar_prev_file_cell"><a href="p2.xhtml#st200_p2">Previous</a></td><td class="st200_navbar_up_file_cell"><a href="p2.xhtml#st200_p2">Up</a></td><td class="st200_navbar_next_file_cell"><a href="p2s2.xhtml#st200_p2s2">Next</a></td></tr><tr><td class="st200_navbar_prev_title_cell">2. Usage</td><td class="st200_navbar_up_title_cell">2. Usage</td><td class="st200_navbar_next_title_cell">2.2. Checks</td></tr></table></div></div></body></html>

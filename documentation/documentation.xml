@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright © 2014 <code@io7m.com> http://io7m.com
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  -->
+
+<s:document
+  xmlns:s="http://schemas.io7m.com/structural/2.0.0"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+  <s:document-title>io7m-jnull 1.0.0 Documentation</s:document-title>
+  <s:document-style>documentation.css</s:document-style>
+  <s:document-contents/>
+
+  <s:part>
+    <s:part-title>Package Information</s:part-title>
+    <s:part-contents />
+    <s:section>
+      <s:section-title>Orientation</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Overview</s:subsection-title>
+        <s:paragraph>
+          The <s:term s:type="package">io7m-jnull</s:term> package implements
+          implements a set of functions and annotations to improve the 
+          safety of Java code with regards to nullable references.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+
+    <s:section>
+      <s:section-title>Installation</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Source compilation</s:subsection-title>
+        <s:paragraph>
+          The project can be compiled and installed with
+          <s:link-external s:target="http://maven.apache.org">Maven</s:link-external>:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim s:type="example"><![CDATA[$ mvn -C clean install]]></s:verbatim>
+        </s:paragraph>
+      </s:subsection>
+
+      <s:subsection>
+        <s:subsection-title>Maven</s:subsection-title>
+        <s:paragraph>
+          Regular releases are made to the
+          <s:link-external s:target="http://search.maven.org/#search%7Cga%7C1%7Cio7m-jnull">Central Repository</s:link-external>,
+          so it's possible to use the <s:term s:type="package">io7m-jnull</s:term>
+          package in your projects with the following Maven dependency:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim s:type="example"><![CDATA[<dependency>
+  <groupId>com.io7m.jnull</groupId>
+  <artifactId>io7m-jnull-core</artifactId>
+  <version>1.0.0</version>
+</dependency>]]></s:verbatim>
+        </s:paragraph>
+        <s:paragraph>
+          All <s:link-external s:target="http://io7m.com">io7m.com</s:link-external>
+          packages use Semantic Versioning
+          <s:footnote>
+            <s:link-external s:target="http://semver.org">http://semver.org</s:link-external>
+          </s:footnote>, which implies that it is always safe to use version ranges
+          with an exclusive upper bound equal to the next major version - the API of
+          the package will not change in a backwards-incompatible manner before the
+          next major version.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+
+    <s:section>
+      <s:section-title>Platform Specific Issues</s:section-title>
+      <s:paragraph>
+        There are currently no known platform-specific issues.
+      </s:paragraph>
+    </s:section>
+
+    <s:section>
+      <s:section-title>License</s:section-title>
+      <s:paragraph>
+        All files distributed with the <s:term s:type="package">io7m-jnull</s:term>
+        package are placed under the following license:
+        <s:verbatim s:type="license"><![CDATA[Copyright © 2014 <code@io7m.com> http://io7m.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.]]>
+        </s:verbatim>
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+  <s:part>
+    <s:part-title>Usage</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>Annotations</s:section-title>
+      <s:paragraph>
+        Currently, there are at least six competing standards for 
+        annotating fields and variables as not allowing 
+        <s:term s:type="constant">null</s:term> values.
+      </s:paragraph>
+      <s:formal-item s:kind="listing">
+        <s:formal-item-title>Non-null annotation standards</s:formal-item-title>
+        <s:list-unordered>
+          <s:list-item>
+            Java EE 6 
+            <s:link-external s:target="http://docs.oracle.com/javaee/6/api/javax/validation/constraints/NotNull.html">validation constraints</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            Findbugs
+            <s:link-external s:target="http://findbugs.sourceforge.net/manual/annotations.html">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            JSR 305
+            <s:link-external s:target="http://code.google.com/p/jsr-305/">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            IntelliJ IDEA
+            <s:link-external s:target="http://www.jetbrains.com/idea/webhelp/nullable-and-notnull-annotations.html">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            Project Lombok
+            <s:link-external s:target="http://projectlombok.org/features/GetterSetter.html">annotations</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            Annotations in the Eclipse
+            <s:term s:type="type">org.eclipse.jdt.annotation</s:term> package.
+          </s:list-item>
+        </s:list-unordered>
+      </s:formal-item>
+      <s:paragraph>
+        Each of the above have various problems with regards to their use in
+        portable Java programs. Firstly, three of them are essentially proprietary
+        program-specific annotations (Findbugs, Intellij IDEA, Eclipse). Some of
+        them are standardized but are subject to availability problems (Java EE 6
+        annotations are only available on the Java EE 6 platform, and at the time
+        of writing, JSR 305 is essentially abandoned). All of them differ in their
+        retention semantics (JSR 305 and Java EE 6 annotations are retained at run-time,
+        others may not be). At the time of writing, Java 8 has just been released and
+        does not contain any definitions of <s:term s:type="type">@NotNull</s:term>
+        annotations, but has incorporated JSR 308 <s:term s:type="term">type annotations</s:term>,
+        which appears to subsume the intentions of JSR 305.
+      </s:paragraph>
+      <s:paragraph>
+        Given the lack of a single standard for these annotations, the 
+        <s:term s:type="package">io7m-jnull</s:term> package provides
+        yet another competing set of annotations intended for use in all
+        <s:link-external s:target="http://io7m.com">io7m</s:link-external>
+        packages. The annotations attempt to combine all of the desirable
+        qualities of the above standards whilst attempting to be compatible
+        with most of them.
+      </s:paragraph>
+      <s:formal-item s:kind="listing">
+        <s:formal-item-title>Annotations</s:formal-item-title>
+        <s:list-unordered>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external> indicates that a field or variable is never <s:term s:type="constant">null</s:term>.
+          </s:list-item>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/Nullable.html">@Nullable</s:link-external> indicates that a field or variable may be <s:term s:type="constant">null</s:term>.
+          </s:list-item>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/NullableByDefault.html">@NullableByDefault</s:link-external> indicates that all fields and variables in all classes of the annotated package are implicitly annotated <s:link-external s:target="apidocs/com/io7m/jnull/Nullable.html">@Nullable</s:link-external>.
+          </s:list-item>
+          <s:list-item>
+            <s:link-external s:target="apidocs/com/io7m/jnull/NonNullByDefault.html">@NonNullByDefault</s:link-external> indicates that all fields and variables in all classes of the annotated package are implicitly annotated <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external>.
+          </s:list-item>
+        </s:list-unordered>
+      </s:formal-item>
+      <s:paragraph>
+        At the time of writing, the Eclipse IDE is capable of using
+        the defined annotations in its static <s:term s:type="constant">null</s:term>
+        reference checking. Project Lombok is capable of using the
+        <s:link-external s:target="apidocs/com/io7m/jnull/Nullable.html">@Nullable</s:link-external> and
+        <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external> annotations
+        for code generation. The defined annotations are retained at run-time.
+      </s:paragraph>
+    </s:section>
+    <s:section>
+      <s:section-title>Checks</s:section-title>
+      <s:paragraph>
+        The <s:link-external s:target="apidocs/com/io7m/jnull/NullCheck.html">NullCheck</s:link-external>
+        class provides functions for performing terse null-checks. The intention is to perform
+        <s:term s:type="constant">null</s:term> checking inside constructors and on the 
+        boundaries of public interfaces. The rationale for the existence of the 
+        <s:term s:type="constant">null</s:term> checks at all is that although
+        variables can be marked <s:link-external s:target="apidocs/com/io7m/jnull/NonNull.html">@NonNull</s:link-external>
+        and tools can statically indicate where a <s:term s:type="constant">null</s:term>
+        value has been passed where a non-<s:term s:type="constant">null</s:term>
+        value is expected, many programmers do not use these tools. If programmers
+        are not using these tools, then they are free to pass
+        <s:term s:type="constant">null</s:term> wherever they want - the language
+        does not prevent it. It is better that checks occur on the boundaries
+        of classes and interfaces where problems can be caught at an early stage
+        rather than the code crashing at arbitrary locations
+        because a <s:term s:type="constant">null</s:term> value worked its way into
+        the program where one was not expected.
+      </s:paragraph>
+      <s:paragraph>
+        A typical pattern is to perform the <s:term s:type="constant">null</s:term> 
+        checks inside of constructors of immutable types:
+      </s:paragraph>
+      <s:formal-item s:kind="example">
+        <s:formal-item-title>Constructor checks</s:formal-item-title>
+        <s:verbatim><![CDATA[final class C
+{
+  private final @NonNull String name;
+  
+  public C(final @Nonnull String in_name)
+  {
+    this.name = NullCheck.notNull(in_name, "Name");
+  }
+  
+  public @Nonnull String getName()
+  {
+    return this.name;
+  }
+}]]></s:verbatim>
+      </s:formal-item>
+      <s:paragraph>
+        If an abusive programmer attempts to construct a value of type
+        <s:term s:type="type">C</s:term> with a
+        <s:term s:type="constant">null</s:term> name, they will be
+        told: <s:term s:type="constant">Null check failed: Expression evaluated to null: Name</s:term>,
+        along with a stack trace indicating that the check failed in the
+        constructor of the type. Without the explicit check, the same
+        programmer could sneak <s:term s:type="constant">null</s:term> 
+        into the program, and any code that called
+        <s:term s:type="function">getName</s:term> would encounter
+        an unexpectedly <s:term s:type="constant">null</s:term> value -
+        far away from where the cause of problem actually originated.
+      </s:paragraph>
+    </s:section>
+    <s:section>
+      <s:section-title>Complaints</s:section-title>
+      <s:paragraph>
+        Nullable references are a major design flaw that have infected
+        almost all programming languages. Better languages rely on
+        algebraic types and pattern matching to completely eliminate
+        all classes of bugs related to nullable references.
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+  <s:part>
+    <s:part-title>API Reference</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>Javadoc</s:section-title>
+      <s:paragraph>
+        API documentation for the package is provided via the
+        included <s:link-external s:target="apidocs">Javadoc</s:link-external>.
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+</s:document>
