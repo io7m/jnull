@@ -24,6 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="io7m-jnull-documentation" />
       </profile>
+      <profile default="false" name="Annotation profile for io7m-jnull-checkstyle" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="io7m-jnull-checkstyle" />
+      </profile>
       <profile default="false" name="Annotation profile for io7m-jnull-core" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -31,17 +38,10 @@
         <processorPath useClasspath="true" />
         <module name="io7m-jnull-core" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="io7m-jnull-checkstyle" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="io7m-jnull" target="1.5" />
-      <module name="io7m-jnull-checkstyle" target="1.5" />
+      <module name="io7m-jnull-checkstyle" target="1.6" />
       <module name="io7m-jnull-core" target="1.6" />
       <module name="io7m-jnull-documentation" target="1.6" />
     </bytecodeTargetLevel>
