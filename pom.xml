@@ -66,6 +66,11 @@
     </repository>
   </distributionManagement>
 
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/io7m/jnull</url>
+  </ciManagement>
+
   <prerequisites>
     <maven>2.2.1</maven>
   </prerequisites>
