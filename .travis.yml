@@ -1,7 +1,1 @@
 language: java
-
-notifications:
-  irc:
-    channels:
-      - "chat.freenode.net#io7m"
-    use_notice: true
