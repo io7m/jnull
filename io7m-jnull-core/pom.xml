@@ -48,7 +48,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.15</version>
         <dependencies>
           <dependency>
             <groupId>${project.groupId}</groupId>
@@ -78,7 +77,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
         <configuration>
           <archive>
             <manifestEntries>
@@ -100,7 +98,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.4</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -130,7 +127,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.3</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -153,21 +149,6 @@
                 </manifestEntries>
               </archive>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Enable code coverage for unit tests -->
-      <plugin>
-        <groupId>org.sonatype.maven.plugin</groupId>
-        <artifactId>emma-maven-plugin</artifactId>
-        <version>1.2</version>
-        <executions>
-          <execution>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>instrument</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>

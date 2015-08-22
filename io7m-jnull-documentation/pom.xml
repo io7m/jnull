@@ -25,22 +25,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.io7m.jstructural</groupId>
-      <artifactId>io7m-jstructural-tools</artifactId>
-      <version>[2.0.0, 3.0.0)</version>
-    </dependency>
-    <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>io7m-jnull-core</artifactId>
       <version>${project.version}</version>
-    </dependency>
-
-    <!-- Depend on the javadoc for each module, in order to aggregate it. -->
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>io7m-jnull-core</artifactId>
-      <version>${project.version}</version>
-      <classifier>javadoc</classifier>
     </dependency>
   </dependencies>
 
@@ -61,7 +48,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
         <configuration>
           <archive>
             <manifestEntries>
@@ -83,7 +69,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.4</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -113,7 +98,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.7</version>
         <executions>
           <execution>
             <id>copy-documentation-resources</id>
@@ -136,42 +120,33 @@
 
       <!-- Produce documentation -->
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.4.0</version>
+        <groupId>com.io7m.jstructural</groupId>
+        <artifactId>io7m-jstructural-maven-plugin</artifactId>
         <executions>
           <execution>
             <id>make-documentation-single</id>
             <phase>prepare-package</phase>
             <goals>
-              <goal>java</goal>
+              <goal>transform</goal>
             </goals>
             <configuration>
-              <mainClass>com.io7m.jnull.documentation.MakeDocumentation</mainClass>
-              <arguments>
-                <argument>--xhtml-single</argument>
-                <argument>${project.build.directory}/documentation/documentation.xml</argument>
-                <argument>${project.build.directory}/documentation/</argument>
-                <argument>--xhtml-body-start</argument>
-                <argument>${project.build.directory}/documentation/brand.xml</argument>
-              </arguments>
+              <documentFile>${project.build.directory}/documentation/documentation.xml</documentFile>
+              <outputDirectory>${project.build.directory}/documentation/</outputDirectory>
+              <brandFile>${project.build.directory}/documentation/brand.xml</brandFile>
+              <pagination>XHTML_SINGLE</pagination>
             </configuration>
           </execution>
           <execution>
             <id>make-documentation-multi</id>
             <phase>prepare-package</phase>
             <goals>
-              <goal>java</goal>
+              <goal>transform</goal>
             </goals>
             <configuration>
-              <mainClass>com.io7m.jnull.documentation.MakeDocumentation</mainClass>
-              <arguments>
-                <argument>--xhtml-multi</argument>
-                <argument>${project.build.directory}/documentation/documentation.xml</argument>
-                <argument>${project.build.directory}/documentation/</argument>
-                <argument>--xhtml-body-start</argument>
-                <argument>${project.build.directory}/documentation/brand.xml</argument>
-              </arguments>
+              <documentFile>${project.build.directory}/documentation/documentation.xml</documentFile>
+              <outputDirectory>${project.build.directory}/documentation/</outputDirectory>
+              <brandFile>${project.build.directory}/documentation/brand.xml</brandFile>
+              <pagination>XHTML_MULTI</pagination>
             </configuration>
           </execution>
         </executions>
@@ -179,8 +154,8 @@
 
       <!-- Javadoc handling -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.3</version>
         <executions>
           <!-- Produce javadoc jar for Central -->
           <execution>
@@ -227,8 +202,8 @@
 
       <!-- Produce documentation archive -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.5.5</version>
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/documentation.xml</descriptor>
@@ -253,7 +228,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>truezip-maven-plugin</artifactId>
-        <version>1.2</version>
         <inherited>false</inherited>
         <executions>
           <execution>
