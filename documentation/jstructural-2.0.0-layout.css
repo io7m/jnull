@@ -9,11 +9,18 @@
 
 .st200_contents
 {
-  list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
 
+/*
+ * Generic table-of-contents items.
+ */
+
+.st200_contents_item
+{
+  list-style: none;
+}
 .st200_contents_item1
 {
 
@@ -26,15 +33,16 @@
 {
   padding-left: 2.0em;
 }
-.st200_contents_part
+
+.st200_contents_item_section
 {
 
 }
-.st200_contents_section
+.st200_contents_item_part
 {
 
 }
-.st200_contents_subsection
+.st200_contents_item_subsection
 {
 
 }
@@ -121,18 +129,6 @@
 .st200_document_contents
 {
   margin-left: 6.2em;
-}
-.st200_document_contents_item
-{
-
-}
-.st200_document_contents_part
-{
-
-}
-.st200_document_contents_section
-{
-
 }
 
 /*
