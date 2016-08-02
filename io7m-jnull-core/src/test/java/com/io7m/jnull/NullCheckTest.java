@@ -16,11 +16,12 @@
 
 package com.io7m.jnull;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @SuppressWarnings("static-method") public final class NullCheckTest
 {
@@ -62,7 +63,8 @@ import org.junit.Test;
     void
     testNotNullAllNull_1()
   {
-    NullCheck.notNullAll(null);
+    Collection<Object> c = null;
+    NullCheck.notNullAll(c);
   }
 
   @Test(expected = NullCheckException.class) public
@@ -80,7 +82,8 @@ import org.junit.Test;
     void
     testNotNullAllNullMessage_1()
   {
-    NullCheck.notNullAll(null, "Integers");
+    Collection<Object> c = null;
+    NullCheck.notNullAll(c, "Integers");
   }
 
   @Test public void testNotNullMessage()

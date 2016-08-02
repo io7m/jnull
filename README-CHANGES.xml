@@ -2,6 +2,16 @@
 <c:changelog xmlns:c="http://schemas.io7m.com/changelog/2.0.0">
   <c:project>io7m-jnull</c:project>
 
+  <c:release c:ticket-system="com.io7m.fossil.jnull">
+    <c:date>2014-06-22</c:date>
+    <c:version>1.0.0</c:version>
+    <c:item>
+      <c:date>2014-06-22</c:date>
+      <c:type-code-new/>
+      <c:summary>Initial release.</c:summary>
+    </c:item>
+  </c:release>
+
   <c:release c:ticket-system="com.github.io7m.jnull">
     <c:date>2015-08-08</c:date>
     <c:version>1.0.1</c:version>
@@ -22,13 +32,23 @@
     </c:item>
   </c:release>
 
-  <c:release c:ticket-system="com.io7m.fossil.jnull">
-    <c:date>2014-06-22</c:date>
-    <c:version>1.0.0</c:version>
+  <c:release c:ticket-system="com.github.io7m.jnull">
+    <c:date>2016-08-02</c:date>
+    <c:version>1.0.2</c:version>
     <c:item>
-      <c:date>2014-06-22</c:date>
-      <c:type-code-new/>
-      <c:summary>Initial release.</c:summary>
+      <c:date>2016-08-08</c:date>
+      <c:type-code-fix/>
+      <c:summary>Update POM files to 2016 standards. Update plugins.</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2016-08-08</c:date>
+      <c:type-code-fix/>
+      <c:summary>The packaged jar is now an OSGi bundle.</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2016-08-08</c:date>
+      <c:type-code-change/>
+      <c:summary>The package will no longer compile on JDK 6 due to Checkstyle, but the compiled code is still JDK 6 compatible.</c:summary>
     </c:item>
   </c:release>
 
