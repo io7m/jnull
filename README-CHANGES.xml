@@ -40,6 +40,11 @@
       <c:type-code-fix/>
       <c:summary>Update POM files to 2016 standards. Update plugins.</c:summary>
     </c:item>
+    <c:item>
+      <c:date>2015-08-08</c:date>
+      <c:type-code-fix/>
+      <c:summary>The packaged jar is now an OSGi bundle.</c:summary>
+    </c:item>
   </c:release>
 
   <c:ticket-system xml:id="com.io7m.fossil.jnull">
