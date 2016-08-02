@@ -4,21 +4,28 @@
     <a:name>io7m release robot</a:name>
     <a:email>contact@io7m.com</a:email>
   </a:author>
-  <a:id>http://io7m.github.io/jnull//releases.atom</a:id>
+  <a:id>http://github.com/io7m/jnull/releases.atom</a:id>
   <a:title>io7m-jnull Releases</a:title>
-  <a:updated>2015-08-08T00:00:00Z</a:updated>
+  <a:updated>2014-06-22T00:00:00Z</a:updated>
   <a:entry>
     <a:id>0</a:id>
+    <a:updated>2014-06-22T00:00:00Z</a:updated>
+    <a:published>2014-06-22T00:00:00Z</a:published>
+    <a:title>io7m-jnull 1.0.0 released</a:title>
+    <a:content type="text"> io7m-jnull 1.0.0 released </a:content>
+  </a:entry>
+  <a:entry>
+    <a:id>1</a:id>
     <a:updated>2015-08-08T00:00:00Z</a:updated>
     <a:published>2015-08-08T00:00:00Z</a:published>
     <a:title>io7m-jnull 1.0.1 released</a:title>
     <a:content type="text"> io7m-jnull 1.0.1 released </a:content>
   </a:entry>
   <a:entry>
-    <a:id>1</a:id>
-    <a:updated>2014-06-22T00:00:00Z</a:updated>
-    <a:published>2014-06-22T00:00:00Z</a:published>
-    <a:title>io7m-jnull 1.0.0 released</a:title>
-    <a:content type="text"> io7m-jnull 1.0.0 released </a:content>
+    <a:id>2</a:id>
+    <a:updated>2016-08-02T00:00:00Z</a:updated>
+    <a:published>2016-08-02T00:00:00Z</a:published>
+    <a:title>io7m-jnull 1.0.2 released</a:title>
+    <a:content type="text"> io7m-jnull 1.0.2 released </a:content>
   </a:entry>
 </a:feed>
