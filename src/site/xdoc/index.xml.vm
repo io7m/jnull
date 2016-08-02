@@ -19,6 +19,7 @@
         <li>Annotations similar to those found in the abandoned JSR 305, suitable for use in static analysis.</li>
         <li>Functions for performing terse null checks.</li>
         <li>Full unit test coverage.</li>
+        <li><a href="https://www.osgi.org/">OSGi</a>-ready.</li>
         <li>ISC license.</li>
       </ul>
     </subsection>
