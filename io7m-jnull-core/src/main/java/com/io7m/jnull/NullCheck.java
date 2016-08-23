@@ -39,14 +39,14 @@ import java.util.Iterator;
 public final class NullCheck
 {
   /**
-   * Check that <code>x</code> is not null, raising
-   * {@link NullPointerException} iff <code>x == null</code>.
+   * Check that {@code x} is not null, raising
+   * {@link NullPointerException} iff {@code x == null}.
    * 
    * @param <T>
    *          The type of values
    * @param x
    *          An arbitrary value
-   * @return <code>x</code>
+   * @return {@code x}
    */
 
   @SuppressWarnings("null") public static @NonNull <T> T notNull(
@@ -59,8 +59,8 @@ public final class NullCheck
   }
 
   /**
-   * Check that <code>x</code> is not null, raising
-   * {@link NullPointerException} iff <code>x == null</code>.
+   * Check that {@code x} is not null, raising
+   * {@link NullPointerException} iff {@code x == null}.
    * 
    * @param <T>
    *          The type of values
@@ -68,7 +68,7 @@ public final class NullCheck
    *          An arbitrary value
    * @param message
    *          A descriptive message describing the value
-   * @return <code>x</code>
+   * @return {@code x}
    */
 
   @SuppressWarnings("null") public static @NonNull <T> T notNull(
@@ -85,17 +85,17 @@ public final class NullCheck
   }
 
   /**
-   * Check that <code>x</code> is not null, and that all elements of
-   * <code>x</code> are not null, raising {@link NullPointerException} iff
-   * <code>x == null</code>.
+   * Check that {@code x} is not null, and that all elements of
+   * {@code x} are not null, raising {@link NullPointerException} iff
+   * {@code x == null}.
    * 
    * @param <T>
    *          The type of values
    * @param <U>
-   *          The type of collections of <code>T</code>
+   *          The type of collections of {@code T}
    * @param x
    *          An arbitrary value
-   * @return <code>x</code>
+   * @return {@code x}
    */
 
   @SuppressWarnings("null") public static @NonNull
@@ -129,19 +129,19 @@ public final class NullCheck
   }
 
   /**
-   * Check that <code>x</code> is not null, and that all elements of
-   * <code>x</code> are not null, raising {@link NullPointerException} iff
-   * <code>x == null</code>.
+   * Check that {@code x} is not null, and that all elements of
+   * {@code x} are not null, raising {@link NullPointerException} iff
+   * {@code x == null}.
    * 
    * @param <T>
    *          The type of values
    * @param <U>
-   *          The type of collections of <code>T</code>
+   *          The type of collections of {@code T}
    * @param x
    *          An arbitrary value
    * @param message
    *          A descriptive message describing the value
-   * @return <code>x</code>
+   * @return {@code x}
    */
 
   @SuppressWarnings("null") public static @NonNull
