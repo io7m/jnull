@@ -179,6 +179,6 @@ public final class NullCheck
 
   private NullCheck()
   {
-    throw new RuntimeException("Unreachable code");
+    throw new AssertionError("Unreachable code");
   }
 }

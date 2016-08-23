@@ -154,7 +154,7 @@ public final class NullCheckTest
     c.setAccessible(true);
 
     this.expected.expect(InvocationTargetException.class);
-    this.expected.expectCause(isA(RuntimeException.class));
+    this.expected.expectCause(isA(AssertionError.class));
     c.newInstance();
   }
 }
