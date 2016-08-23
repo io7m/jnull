@@ -109,6 +109,7 @@ public final class NullCheckTest
 
     this.expected.expect(NullCheckException.class);
     NullCheck.notNullAll(c, "Integers");
+    Assert.fail();
   }
 
   @Test
