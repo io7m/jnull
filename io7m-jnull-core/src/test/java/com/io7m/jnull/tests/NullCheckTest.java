@@ -14,8 +14,10 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jnull;
+package com.io7m.jnull.tests;
 
+import com.io7m.jnull.NullCheck;
+import com.io7m.jnull.NullCheckException;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
