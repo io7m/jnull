@@ -18,6 +18,7 @@ package com.io7m.jnull.tests;
 
 import com.io7m.jnull.NullCheck;
 import com.io7m.jnull.NullCheckException;
+import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -28,8 +29,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import static org.hamcrest.core.Is.isA;
 
 @SuppressWarnings("static-method")
 public final class NullCheckTest
@@ -155,7 +154,7 @@ public final class NullCheckTest
     c.setAccessible(true);
 
     this.expected.expect(InvocationTargetException.class);
-    this.expected.expectCause(isA(AssertionError.class));
+    this.expected.expectCause(Is.isA(AssertionError.class));
     c.newInstance();
     Assert.fail();
   }
