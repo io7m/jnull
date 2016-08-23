@@ -81,6 +81,7 @@ public final class NullCheckTest
 
     this.expected.expect(NullCheckException.class);
     NullCheck.notNullAll(c);
+    Assert.fail();
   }
 
   @Test
@@ -94,6 +95,7 @@ public final class NullCheckTest
 
     this.expected.expect(NullCheckException.class);
     Assert.assertEquals(xs, NullCheck.notNullAll(xs, "Integers"));
+    Assert.fail();
   }
 
   @Test
@@ -118,6 +120,7 @@ public final class NullCheckTest
   {
     this.expected.expect(NullCheckException.class);
     NullCheck.notNull(null);
+    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class)
@@ -152,5 +155,6 @@ public final class NullCheckTest
     this.expected.expect(InvocationTargetException.class);
     this.expected.expectCause(isA(AssertionError.class));
     c.newInstance();
+    Assert.fail();
   }
 }
