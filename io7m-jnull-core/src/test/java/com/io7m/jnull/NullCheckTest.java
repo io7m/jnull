@@ -32,11 +32,6 @@ import static org.hamcrest.core.Is.isA;
 @SuppressWarnings("static-method")
 public final class NullCheckTest
 {
-  public NullCheckTest()
-  {
-    // Nothing
-  }
-
   @Rule public final ExpectedException expected = ExpectedException.none();
 
   @Test
