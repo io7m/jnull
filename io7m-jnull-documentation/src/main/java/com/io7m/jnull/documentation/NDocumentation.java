@@ -26,6 +26,15 @@ import java.net.URL;
 
 public final class NDocumentation
 {
+  private NDocumentation()
+  {
+    throw new AssertionError("Unreachable");
+  }
+
+  /**
+   * @return The URI of the documentation source file
+   */
+
   public static URI getDocumentationXMLLocation()
   {
     try {
