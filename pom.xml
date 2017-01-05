@@ -23,8 +23,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <siteReposDirectory>/com/io7m/jnull</siteReposDirectory>
-    <siteDocumentationDirectory>/com/io7m/jnull/io7m-jnull-documentation</siteDocumentationDirectory>
+    <siteReposDirectory>com/io7m/jnull</siteReposDirectory>
+    <siteDocumentationDirectory>com/io7m/jnull/io7m-jnull-documentation</siteDocumentationDirectory>
   </properties>
 
   <licenses>
