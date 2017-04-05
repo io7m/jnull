@@ -7,15 +7,20 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.jnull</groupId>
-    <artifactId>io7m-jnull</artifactId>
-    <version>1.0.2</version>
+    <artifactId>com.io7m.jnull</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
   </parent>
-  <artifactId>io7m-jnull-documentation</artifactId>
+  <artifactId>com.io7m.jnull.documentation</artifactId>
 
   <packaging>jar</packaging>
-  <name>io7m-jnull-documentation</name>
+  <name>com.io7m.jnull.documentation</name>
   <description>Null pointer handling (Documentation)</description>
   <url>http://io7m.github.io/jnull/</url>
+
+  <properties>
+    <io7m.api.previousArtifactId>io7m-jnull-documentation</io7m.api.previousArtifactId>
+    <io7m.api.japicmp.skip>true</io7m.api.japicmp.skip>
+  </properties>
 
   <scm>
     <url>${project.parent.scm.url}</url>
@@ -26,7 +31,7 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>io7m-jnull-core</artifactId>
+      <artifactId>com.io7m.jnull.core</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@SuppressWarnings("static-method")
 public final class NullCheckTest
 {
   @Rule public final ExpectedException expected = ExpectedException.none();

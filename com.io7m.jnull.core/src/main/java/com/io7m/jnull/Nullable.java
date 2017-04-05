@@ -26,11 +26,14 @@ import java.lang.annotation.Target;
  * An annotation that indicates that the given field or parameter may be null.
  */
 
-@Documented @Target({
+@Documented
+@Target({
   ElementType.METHOD,
   ElementType.FIELD,
   ElementType.LOCAL_VARIABLE,
-  ElementType.PARAMETER }) @Retention(RetentionPolicy.RUNTIME) public @interface Nullable
+  ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Nullable
 {
   // Nothing.
 }

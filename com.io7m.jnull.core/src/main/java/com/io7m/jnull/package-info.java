@@ -14,24 +14,10 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jnull;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 /**
- * An annotation that indicates that the given field or parameter is never
- * null.
+ * Annotations and functions for dealing with null references.
  */
 
-@Documented @Target({
-  ElementType.METHOD,
-  ElementType.FIELD,
-  ElementType.LOCAL_VARIABLE,
-  ElementType.PARAMETER }) @Retention(RetentionPolicy.RUNTIME) public @interface NonNull
-{
-  // Nothing.
-}
+@NonNullByDefault
+package com.io7m.jnull;
+
