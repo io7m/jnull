@@ -24,7 +24,7 @@ package com.io7m.jnull;
  * Exceptions of this type are <i>not</i> intended to be caught and handled;
  * they indicate program bugs.
  * </p>
- * 
+ *
  * @see NullCheck
  */
 
@@ -38,9 +38,8 @@ public final class NullCheckException extends RuntimeException
 
   /**
    * Construct an exception with the given message.
-   * 
-   * @param message
-   *          The message
+   *
+   * @param message The message
    */
 
   public NullCheckException(
@@ -51,11 +50,9 @@ public final class NullCheckException extends RuntimeException
 
   /**
    * Construct an exception with the given cause and message.
-   * 
-   * @param message
-   *          The message
-   * @param cause
-   *          The cause
+   *
+   * @param message The message
+   * @param cause   The cause
    */
 
   public NullCheckException(

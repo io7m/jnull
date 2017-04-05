@@ -37,7 +37,8 @@ import java.lang.annotation.Target;
  * </ul>
  */
 
-@Documented @Target({
+@Documented
+@Target({
   ElementType.ANNOTATION_TYPE,
   ElementType.CONSTRUCTOR,
   ElementType.FIELD,
@@ -45,7 +46,9 @@ import java.lang.annotation.Target;
   ElementType.METHOD,
   ElementType.PACKAGE,
   ElementType.PARAMETER,
-  ElementType.TYPE }) @Retention(RetentionPolicy.RUNTIME) public @interface NonNullByDefault
+  ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface NonNullByDefault
 {
   // Nothing.
 }

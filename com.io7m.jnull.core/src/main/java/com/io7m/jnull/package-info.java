@@ -18,5 +18,6 @@
  * Annotations and functions for dealing with null references.
  */
 
-@NonNullByDefault package com.io7m.jnull;
+@NonNullByDefault
+package com.io7m.jnull;
 

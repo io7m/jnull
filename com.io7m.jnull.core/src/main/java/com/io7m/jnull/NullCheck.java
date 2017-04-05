@@ -32,24 +32,34 @@ import java.util.Iterator;
  * are <i>not</i> intended to be caught and handled; they indicate program
  * bugs.
  * </p>
- * 
+ *
  * @see NullCheckException
  */
 
 public final class NullCheck
 {
+  private NullCheck()
+  {
+    throw new AssertionError("Unreachable code");
+  }
+
   /**
    * Check that {@code x} is not null, raising
-   * {@link NullPointerException} iff {@code x == null}.
-   * 
-   * @param <T>
-   *          The type of values
-   * @param x
-   *          An arbitrary value
+   * {@link NullCheckException} iff {@code x == null}.
+   *
+   * @param <T> The type of values
+   * @param x   An arbitrary value
+   *
    * @return {@code x}
+   *
+   * @deprecated Use {@link #notNull(Object, String)}
    */
 
-  @SuppressWarnings("null") public static @NonNull <T> T notNull(
+  @SuppressWarnings("null")
+  @Deprecated
+  public static
+  @NonNull
+  <T> T notNull(
     final @Nullable T x)
   {
     if (x == null) {
@@ -60,18 +70,19 @@ public final class NullCheck
 
   /**
    * Check that {@code x} is not null, raising
-   * {@link NullPointerException} iff {@code x == null}.
-   * 
-   * @param <T>
-   *          The type of values
-   * @param x
-   *          An arbitrary value
-   * @param message
-   *          A descriptive message describing the value
+   * {@link NullCheckException} iff {@code x == null}.
+   *
+   * @param <T>     The type of values
+   * @param x       An arbitrary value
+   * @param message A descriptive message describing the value
+   *
    * @return {@code x}
    */
 
-  @SuppressWarnings("null") public static @NonNull <T> T notNull(
+  @SuppressWarnings("null")
+  public static
+  @NonNull
+  <T> T notNull(
     final @Nullable T x,
     final @NonNull String message)
   {
@@ -86,23 +97,26 @@ public final class NullCheck
 
   /**
    * Check that {@code x} is not null, and that all elements of
-   * {@code x} are not null, raising {@link NullPointerException} iff
+   * {@code x} are not null, raising {@link NullCheckException} iff
    * {@code x == null}.
-   * 
-   * @param <T>
-   *          The type of values
-   * @param <U>
-   *          The type of collections of {@code T}
-   * @param x
-   *          An arbitrary value
+   *
+   * @param <T> The type of values
+   * @param <U> The type of collections of {@code T}
+   * @param x   An arbitrary value
+   *
    * @return {@code x}
+   *
+   * @deprecated Use {@link #notNullAll(Collection, String)}
    */
 
-  @SuppressWarnings("null") public static @NonNull
-    <T, U extends Collection<T>>
-    U
-    notNullAll(
-      final @Nullable U x)
+  @SuppressWarnings("null")
+  @Deprecated
+  public static
+  @NonNull
+  <T, U extends Collection<T>>
+  U
+  notNullAll(
+    final @Nullable U x)
   {
     if (x == null) {
       final StringBuilder text = new StringBuilder();
@@ -130,26 +144,25 @@ public final class NullCheck
 
   /**
    * Check that {@code x} is not null, and that all elements of
-   * {@code x} are not null, raising {@link NullPointerException} iff
+   * {@code x} are not null, raising {@link NullCheckException} iff
    * {@code x == null}.
-   * 
-   * @param <T>
-   *          The type of values
-   * @param <U>
-   *          The type of collections of {@code T}
-   * @param x
-   *          An arbitrary value
-   * @param message
-   *          A descriptive message describing the value
+   *
+   * @param <T>     The type of values
+   * @param <U>     The type of collections of {@code T}
+   * @param x       An arbitrary value
+   * @param message A descriptive message describing the value
+   *
    * @return {@code x}
    */
 
-  @SuppressWarnings("null") public static @NonNull
-    <T, U extends Collection<T>>
-    U
-    notNullAll(
-      final @Nullable U x,
-      final @NonNull String message)
+  @SuppressWarnings("null")
+  public static
+  @NonNull
+  <T, U extends Collection<T>>
+  U
+  notNullAll(
+    final @Nullable U x,
+    final @NonNull String message)
   {
     if (x == null) {
       final StringBuilder text = new StringBuilder();
@@ -175,10 +188,5 @@ public final class NullCheck
     }
 
     return x;
-  }
-
-  private NullCheck()
-  {
-    throw new AssertionError("Unreachable code");
   }
 }
