@@ -7,15 +7,19 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.jnull</groupId>
-    <artifactId>io7m-jnull</artifactId>
-    <version>1.0.2</version>
+    <artifactId>com.io7m.jnull</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
   </parent>
-  <artifactId>io7m-jnull-checkstyle</artifactId>
+  <artifactId>com.io7m.jnull.checkstyle</artifactId>
 
   <packaging>jar</packaging>
-  <name>io7m-jnull-checkstyle</name>
+  <name>com.io7m.jnull.checkstyle</name>
   <description>~Null pointer handling (Checkstyle policy)</description>
   <url>http://io7m.github.io/jnull/</url>
+
+  <properties>
+    <io7m.api.previousArtifactId>io7m-jnull-checkstyle</io7m.api.previousArtifactId>
+  </properties>
 
   <scm>
     <url>${project.parent.scm.url}</url>
