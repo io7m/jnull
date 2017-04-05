@@ -32,6 +32,7 @@
     <io7m.checkstyle.artifact>com.io7m.jnull.checkstyle</io7m.checkstyle.artifact>
     <io7m.checkstyle.path>/com/io7m/jnull/checkstyle/checkstyle.xml</io7m.checkstyle.path>
     <io7m.api.previousVersion>1.0.2</io7m.api.previousVersion>
+    <io7m.javadoc.docLint/>
   </properties>
 
   <licenses>
