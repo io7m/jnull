@@ -1,0 +1,7 @@
+Comparing source compatibility of /home/someone/git/com.github/io7m/jnull/com.io7m.jnull.core/target/com.io7m.jnull.core-1.1.0.jar against /home/someone/.m2/repository/com/io7m/jnull/io7m-jnull-core/1.0.2/io7m-jnull-core-1.0.2.jar
+WARNING: You are using the option '--ignore-missing-classes', i.e. superclasses and interfaces that could not be found on the classpath are ignored. Hence changes caused by these superclasses and interfaces are not reflected in the output.
+===  UNCHANGED CLASS: PUBLIC FINAL com.io7m.jnull.NullCheck  (not serializable)
+	===  UNCHANGED METHOD: PUBLIC STATIC java.lang.Object notNull(java.lang.Object)
+		+++  NEW ANNOTATION: java.lang.Deprecated
+	===  UNCHANGED METHOD: PUBLIC STATIC java.util.Collection notNullAll(java.util.Collection)
+		+++  NEW ANNOTATION: java.lang.Deprecated
