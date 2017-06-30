@@ -62,7 +62,7 @@
         <s:paragraph>
           <s:verbatim s:type="example"><![CDATA[<dependency>
   <groupId>${project.groupId}</groupId>
-  <artifactId>${project.parent.artifactId}-core</artifactId>
+  <artifactId>${project.parent.artifactId}.core</artifactId>
   <version>${project.version}</version>
 </dependency>]]></s:verbatim>
         </s:paragraph>
@@ -74,7 +74,14 @@
           </s:footnote>, which implies that it is always safe to use version ranges
           with an exclusive upper bound equal to the next major version - the API of
           the package will not change in a backwards-incompatible manner before the
-          next major version.
+          next major version. For example:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim s:type="example"><![CDATA[<dependency>
+  <groupId>${project.groupId}</groupId>
+  <artifactId>${project.parent.artifactId}.core</artifactId>
+  <version>[${com.io7m.jnull.documentation.majorVersion}.${com.io7m.jnull.documentation.minorVersion}.0, ${com.io7m.jnull.documentation.nextMajorVersion}.0.0)</version>
+</dependency>]]></s:verbatim>
         </s:paragraph>
       </s:subsection>
     </s:section>
