@@ -1,17 +1,7 @@
-env:
-  _JAVA_OPTIONS="-Xms1G -Xmx4G"
-
 language: java
 
 jdk:
-  - oraclejdk8
-  - oraclejdk7
-  - openjdk7
-
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
+  - oraclejdk9
 
 install: true
 

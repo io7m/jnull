@@ -8,12 +8,12 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor</artifactId>
-    <version>1.0.2</version>
+    <version>2.0.0-beta0001</version>
   </parent>
 
   <groupId>com.io7m.jnull</groupId>
   <artifactId>com.io7m.jnull</artifactId>
-  <version>1.1.0</version>
+  <version>2.0.0-beta0001</version>
 
   <packaging>pom</packaging>
   <name>com.io7m.jnull</name>
@@ -31,8 +31,11 @@
     <siteDocumentationDirectory>com/io7m/jnull/com.io7m.documentation</siteDocumentationDirectory>
     <io7m.checkstyle.artifact>com.io7m.jnull.checkstyle</io7m.checkstyle.artifact>
     <io7m.checkstyle.path>/com/io7m/jnull/checkstyle/checkstyle.xml</io7m.checkstyle.path>
-    <io7m.api.previousVersion>1.0.2</io7m.api.previousVersion>
+    <io7m.api.previousVersion>1.1.0</io7m.api.previousVersion>
     <io7m.javadoc.docLint/>
+
+    <!-- Temporarily work around a lack of JDK 9 compatibility -->
+    <mdep.analyze.skip>true</mdep.analyze.skip>
   </properties>
 
   <licenses>
@@ -105,14 +108,14 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!-- Require JDK >= 1.6 -->
+        <!-- Require JDK >= 9 -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <source>1.6</source>
-            <target>1.6</target>
-            <optimize>true</optimize>
+            <source>9</source>
+            <target>9</target>
+            <release>9</release>
           </configuration>
         </plugin>
 
