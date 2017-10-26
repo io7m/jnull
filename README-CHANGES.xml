@@ -11,6 +11,12 @@
       <c:type-code-change/>
       <c:summary>All modules are now Java 9 modules. JDK 9 is now required.</c:summary>
     </c:item>
+
+    <c:item>
+      <c:date>2017-10-26</c:date>
+      <c:type-code-change/>
+      <c:summary>Remove all deprecated methods.</c:summary>
+    </c:item>
   </c:release>
 
   <c:release c:ticket-system="com.github.io7m.jnull">

@@ -35,22 +35,6 @@ public final class NullCheckTest
   @Rule public final ExpectedException expected = ExpectedException.none();
 
   @Test
-  public void testNotNull()
-  {
-    Assert.assertEquals("example", NullCheck.notNull("example"));
-  }
-
-  @Test
-  public void testNotNullAll()
-  {
-    final List<Integer> xs = new ArrayList<Integer>();
-    xs.add(Integer.valueOf(0));
-    xs.add(Integer.valueOf(1));
-    xs.add(Integer.valueOf(2));
-    Assert.assertEquals(xs, NullCheck.notNullAll(xs));
-  }
-
-  @Test
   public void testNotNullAllMessage()
   {
     final List<Integer> xs = new ArrayList<Integer>();
@@ -61,32 +45,7 @@ public final class NullCheckTest
   }
 
   @Test
-  public void
-  testNotNullAllNull0()
-  {
-    final List<Integer> xs = new ArrayList<Integer>();
-    xs.add(Integer.valueOf(0));
-    xs.add(null);
-    xs.add(Integer.valueOf(2));
-
-    this.expected.expect(NullCheckException.class);
-    Assert.assertEquals(xs, NullCheck.notNullAll(xs));
-  }
-
-  @Test
-  public void
-  testNotNullAllNull1()
-  {
-    final Collection<Object> c = null;
-
-    this.expected.expect(NullCheckException.class);
-    NullCheck.notNullAll(c);
-    Assert.fail();
-  }
-
-  @Test
-  public void
-  testNotNullAllNullMessage0()
+  public void testNotNullAllNullMessage0()
   {
     final List<Integer> xs = new ArrayList<Integer>();
     xs.add(Integer.valueOf(0));
@@ -99,8 +58,7 @@ public final class NullCheckTest
   }
 
   @Test
-  public void
-  testNotNullAllNullMessage1()
+  public void testNotNullAllNullMessage1()
   {
     final Collection<Object> c = null;
 
@@ -113,14 +71,6 @@ public final class NullCheckTest
   public void testNotNullMessage()
   {
     Assert.assertEquals("example", NullCheck.notNull("example", "Message"));
-  }
-
-  @Test
-  public void testNull()
-  {
-    this.expected.expect(NullCheckException.class);
-    NullCheck.notNull(null);
-    Assert.fail();
   }
 
   @Test(expected = NullCheckException.class)

@@ -47,31 +47,6 @@ public final class NullCheck
    * Check that {@code x} is not null, raising
    * {@link NullCheckException} iff {@code x == null}.
    *
-   * @param <T> The type of values
-   * @param x   An arbitrary value
-   *
-   * @return {@code x}
-   *
-   * @deprecated Use {@link #notNull(Object, String)}
-   */
-
-  @SuppressWarnings("null")
-  @Deprecated
-  public static
-  @NonNull
-  <T> T notNull(
-    final @Nullable T x)
-  {
-    if (x == null) {
-      throw new NullCheckException("Expression evaluated to null");
-    }
-    return x;
-  }
-
-  /**
-   * Check that {@code x} is not null, raising
-   * {@link NullCheckException} iff {@code x == null}.
-   *
    * @param <T>     The type of values
    * @param x       An arbitrary value
    * @param message A descriptive message describing the value
@@ -87,58 +62,11 @@ public final class NullCheck
     final @NonNull String message)
   {
     if (x == null) {
-      final StringBuilder text = new StringBuilder();
+      final StringBuilder text = new StringBuilder(32 + message.length());
       text.append("Expression evaluated to null: ");
       text.append(message);
       throw new NullCheckException(text.toString());
     }
-    return x;
-  }
-
-  /**
-   * Check that {@code x} is not null, and that all elements of
-   * {@code x} are not null, raising {@link NullCheckException} iff
-   * {@code x == null}.
-   *
-   * @param <T> The type of values
-   * @param <U> The type of collections of {@code T}
-   * @param x   An arbitrary value
-   *
-   * @return {@code x}
-   *
-   * @deprecated Use {@link #notNullAll(Collection, String)}
-   */
-
-  @SuppressWarnings("null")
-  @Deprecated
-  public static
-  @NonNull
-  <T, U extends Collection<T>>
-  U
-  notNullAll(
-    final @Nullable U x)
-  {
-    if (x == null) {
-      final StringBuilder text = new StringBuilder();
-      text.append("Expression evaluated to null");
-      throw new NullCheckException(text.toString());
-    }
-
-    int index = 0;
-    final Iterator<T> iter = x.iterator();
-    while (iter.hasNext()) {
-      final T z = iter.next();
-      if (z == null) {
-        final StringBuilder text = new StringBuilder();
-        text.append("Expression ");
-        text.append(" [");
-        text.append(index);
-        text.append("] evaluated to null");
-        throw new NullCheckException(text.toString());
-      }
-      index = index + 1;
-    }
-
     return x;
   }
 
@@ -165,7 +93,7 @@ public final class NullCheck
     final @NonNull String message)
   {
     if (x == null) {
-      final StringBuilder text = new StringBuilder();
+      final StringBuilder text = new StringBuilder(32 + message.length());
       text.append("Expression evaluated to null: ");
       text.append(message);
       throw new NullCheckException(text.toString());
@@ -176,7 +104,7 @@ public final class NullCheck
     while (iter.hasNext()) {
       final T z = iter.next();
       if (z == null) {
-        final StringBuilder text = new StringBuilder();
+        final StringBuilder text = new StringBuilder(32 + message.length());
         text.append("Expression ");
         text.append(message);
         text.append(" [");
