@@ -7,3 +7,5 @@ jnull
 [![Codecov](https://img.shields.io/codecov/c/github/io7m/jnull.svg?style=flat-square)](https://codecov.io/gh/io7m/jnull)
 
 ![jnull](./src/site/resources/jnull.jpg?raw=true)
+
+THIS PROJECT IS UNMAINTAINED.
